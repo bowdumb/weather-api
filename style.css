@@ -10,6 +10,33 @@ h4 {
     margin-left: 15px;
 }
 
+.search-form {
+    display: flex;
+  }
+  
+  /* Add some spacing between the search bar and submit button */
+  .search-bar {
+    margin-right: 10px;
+  }
+  
+  /* Style the card container */
+  .card-container {
+    margin-top: 20px;
+  }
+  
+  /* Style the individual cards */
+  .card {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Center align the card content */
+  .card-body {
+    text-align: center;
+  }
 /* .card-container {
     display: flex;
     justify-content: flex-start;
