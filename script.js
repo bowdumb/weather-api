@@ -34,6 +34,7 @@ var cityInputSubmit = function(event) {
       var card = document.createElement("div");
       card.classList.add("card");
 
+      console.log(data)
       var currentCardWeather = `
         <h2>${data.city.name} (${formatDate})</h2>
         <p>Current temperature: ${data.list[0].main.temp} °F</p>
@@ -65,11 +66,11 @@ function renderFiveDay(data, cityInput) {
   futureCardContainer.innerHTML = "";
 
   var forecastData = [
-    data.list[7],
-    data.list[15],
-    data.list[23],
-    data.list[31],
-    data.list[39]
+    data.list[0],
+    data.list[8],
+    data.list[16],
+    data.list[24],
+    data.list[32]
   ];
 
   for (var i = 0; i < forecastData.length; i++) {
@@ -83,6 +84,8 @@ function renderFiveDay(data, cityInput) {
     cardTitle.textContent = data.city.name;
     cardContent.appendChild(cardTitle);
 
+    
+
     var forecast = forecastData[i];
     var forecastContent = `
       <p>Date: ${forecast.dt_txt} </p>
@@ -94,6 +97,7 @@ function renderFiveDay(data, cityInput) {
 
     card.appendChild(cardContent);
     futureCardContainer.appendChild(card);
+    
   }
 }
 
