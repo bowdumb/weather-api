@@ -46,7 +46,7 @@ var cityInputSubmit = function (event) {
       card.innerHTML = currentCardWeather;
 
       var iconCode = data.list[0].weather[0].icon;
-      var iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+      var iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
       var weatherIcon = document.createElement("img");
       weatherIcon.src = iconUrl;
       card.appendChild(weatherIcon);
@@ -101,7 +101,7 @@ function renderFiveDay(data, cityInput) {
     `
 
     var iconCode = forecast.weather[0].icon;
-    var iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+    var iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
     var weatherIcon = document.createElement("img");
     weatherIcon.src = iconUrl;
     cardContent.appendChild(weatherIcon);
@@ -110,7 +110,6 @@ function renderFiveDay(data, cityInput) {
 
     card.appendChild(cardContent);
     futureCardContainer.appendChild(card);
-
   }
 }
 
