@@ -24,10 +24,15 @@ The Weather Dashboard uses a JavaScript and HTML front-end while incorporating t
 
 ![Image of search results](./assets/Screenshot%202023-06-07%20at%209.17.59%20PM.png)
 
+## Deployed Link
+
+The deployed page can be visit at: https://claxcode.github.io/weather-api/
+
 
 ## Repository
 
 To view the repository, visit this link: https://claxcode.github.io/weather-api/
+
 
 ## Contact
 
