@@ -16,7 +16,7 @@ The Weather Dashboard uses a JavaScript and HTML front-end while incorporating t
 
 ### Image of home screen
 
-![Image of home screen](./assets/Screenshot%202023-06-07%20at%209.17.59%20PM.png)
+![Image of home screen](./assets/Screenshot%202023-06-07%20at%209.16.41%20PM.png)
 
 
 
