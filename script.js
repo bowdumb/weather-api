@@ -6,7 +6,7 @@ var futureCardContainer = document.getElementById("future-card");
 var savedCities = document.getElementById("saved-cities");
 var savedList = [];
 
-var cityInputSubmit = function(event) {
+var cityInputSubmit = function (event) {
   event.preventDefault();
   var cityInput = citySearchText.value.toLowerCase();
 
@@ -22,7 +22,7 @@ var cityInputSubmit = function(event) {
   });
 
   fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + cityInput + '&appid=' + apiKey + '&units=imperial')
-    .then(function(response) {
+    .then(function (response) {
       if (response.status !== 200) {
         console.log(response.status);
         alert('That is not a valid city. Please enter another city name.');
@@ -30,7 +30,7 @@ var cityInputSubmit = function(event) {
       }
       return response.json();
     })
-    .then(function(data) {
+    .then(function (data) {
       var card = document.createElement("div");
       card.classList.add("card");
 
@@ -40,9 +40,17 @@ var cityInputSubmit = function(event) {
         <p>Current temperature: ${data.list[0].main.temp} °F</p>
         <p>Wind speed: ${data.list[0].wind.speed} mph</p>
         <p>Humidity: ${data.list[0].main.humidity}%</p>
-      `;
+      `
+
       currentWeatherContainer.innerHTML = "";
       card.innerHTML = currentCardWeather;
+
+      var iconCode = data.list[0].weather[0].icon;
+      var iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+      var weatherIcon = document.createElement("img");
+      weatherIcon.src = iconUrl;
+      card.appendChild(weatherIcon);
+
       currentWeatherContainer.appendChild(card);
 
       localStorage.setItem("recentSearch", cityInput);
@@ -55,9 +63,9 @@ function renderSaved() {
   var lastCitySearch = localStorage.getItem("recentSearch");
   var savedCityButton = document.createElement('button');
   savedCityButton.textContent = lastCitySearch;
-  savedCityButton.addEventListener("click", function() {
+  savedCityButton.addEventListener("click", function () {
     citySearchText.value = lastCitySearch;
-    cityInputSubmit(event);
+    cityInputSubmit();
   });
   savedCities.appendChild(savedCityButton);
 }
@@ -84,20 +92,25 @@ function renderFiveDay(data, cityInput) {
     cardTitle.textContent = data.city.name;
     cardContent.appendChild(cardTitle);
 
-    
-
     var forecast = forecastData[i];
     var forecastContent = `
       <p>Date: ${forecast.dt_txt} </p>
       <p>Temperature: ${forecast.main.temp} °F</p>
       <p>Wind speed: ${forecast.wind.speed} mph</p>
       <p>Humidity: ${forecast.main.humidity}%</p>
-    `;
+    `
+
+    var iconCode = forecast.weather[0].icon;
+    var iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+    var weatherIcon = document.createElement("img");
+    weatherIcon.src = iconUrl;
+    cardContent.appendChild(weatherIcon);
+
     cardContent.innerHTML += forecastContent;
 
     card.appendChild(cardContent);
     futureCardContainer.appendChild(card);
-    
+
   }
 }
 
